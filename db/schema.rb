@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_06_200600) do
+ActiveRecord::Schema.define(version: 2019_04_13_130627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,21 +35,15 @@ ActiveRecord::Schema.define(version: 2019_04_06_200600) do
     t.index ["user_id", "course_id"], name: "index_enrollments_on_user_id_and_course_id"
   end
 
-  create_table "images", force: :cascade do |t|
-    t.text "caption"
-    t.integer "course_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "lessons", force: :cascade do |t|
     t.string "title"
     t.string "subtitle"
-    t.text "description"
     t.integer "section_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "video"
+    t.integer "row_order"
+    t.index ["row_order"], name: "index_lessons_on_row_order"
   end
 
   create_table "sections", force: :cascade do |t|
@@ -57,6 +51,8 @@ ActiveRecord::Schema.define(version: 2019_04_06_200600) do
     t.integer "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "row_order"
+    t.index ["row_order"], name: "index_sections_on_row_order"
   end
 
   create_table "users", force: :cascade do |t|
@@ -65,8 +61,15 @@ ActiveRecord::Schema.define(version: 2019_04_06_200600) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "fullname"
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

@@ -1,0 +1,54 @@
+<div class="booyah-box col-10 offset-1">
+  <div class="row">
+    <div class="col-12 col-md-9">
+      <h1>Hello <%= current_user.fullname %>!</h1>
+    </div>
+    
+    <div class="col-12 col-md-3 text-center">
+      <%= link_to 'Edit Your Profile', edit_user_registration_path, class: 'btn btn-primary btn-sm profile-btn' %>
+      <br class="clr" />
+    </div>
+  </div>
+
+  <hr />
+  <br class="clr" />
+
+  <h2>What You're Learning</h2>
+  
+  <% if current_user.enrolled_courses.empty? %>
+    <br /><br />
+    <p>
+      You're not enrolled in any courses. <%= link_to courses_path do %> Enroll now!<% end %>
+    </p>
+  <% else %>
+    <div class="col-12 col-lg-4">
+      <br /><br />
+      <% current_user.enrolled_courses.each do |course| %>
+        <br /><br />
+        <h3 class="text-center"><%= link_to course.title, course_path(course) %></h3>
+      <% end %>
+    </div>
+  <% end %>
+
+  <br class="clr" />
+  <hr class="col-8 offset-2" >
+  <br class="clr" />
+
+  <h2>What You're Teaching</h2>
+
+  <% if current_user.courses.empty? %>
+    <br /><br />
+    <p>
+      You're not teaching any courses! <%= link_to new_instructor_course_path do %> Teach now!<% end %>
+    </p>
+  <% else %>
+    <div class="col-12 col-lg-4">
+      <br /><br />
+      <% current_user.courses.each do |course| %>
+        <br /><br />
+
+        <h3 class="text-center"><%= link_to course.title, course_path(course) %></h3>
+      <% end %>
+    </div>
+  <% end %>  
+</div>

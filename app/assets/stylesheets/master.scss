@@ -1,74 +1,77 @@
 @import "bootstrap";
+@import "font-awesome";
+
 body {
-  background: image_url('hip_square.png');
+  font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+  background-image: url('cream_dust.png');
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
 }
 
 .navbar {
-  font-family: "Helvetica Neue", Helvetica;
-  font-weight: 200;
   box-shadow: 0px 1px 3px #2a2a2a;
-  background: image_url('dark_wood.png');
+  background: image_url('dust_scratches.png');
 }
 
-.navbar-inverse a.navbar-brand {
-  font-family: "Helvetica Neue", Helvetica;
-  font-weight: 100;
-  color: white;
+.logofont {
+  font-family: 'Itim', cursive;
+  font-size: 3rem;
+  margin: 0 20px 0 0;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 .hero {
- background: image_url('hero.jpg') no-repeat center center fixed;
+  background: image_url('hero.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 370px;
-  box-shadow: 0px 3px 8px #2a2a2a;
-}
-
-h1, h2, h3, h4, h5, h6, .navbar {
-  margin: 0;
+  height: 450px;
+  box-shadow: 0px 1px 3px #2a2a2a;
 }
 
 .frosty {
-background: rgba(0, 0, 0, 0.5);
-color: white;
-}
-
-.frosty h1 {
-  font-family: "Helvetica Neue", Helvetica;
-  font-weight: 100;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  padding: 20px 0 20px 0;
+  position: absolute;
+  margin-top: 10%;
+  border: 2px black solid;
   text-shadow: rgba(0, 0, 0, 0.95) 1px 1px;
 }
 
-.frosty h2 {
-  font-family: "Helvetica Neue", Helvetica;
-  font-weight: 200;
-  text-shadow: rgba(0, 0, 0, 0.95) 1px 1px;
-}
 .btn {
   border-radius: 0;
 }
 
 .feature {
   width: 100%;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding: 20px 5%;
+  margin-top: 20px;
 }
 
-body {
-  background: image_url('bg.png');
-  font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+p.alert {
+  position: absolute;
+  width: 100%;
+  z-index: 2;
 }
-
 
 .booyah-box {
-  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
-  -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
-  box-shadow: 1px 1px 2px 0 #d0d0d0;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+  -webkit-box-shadow:1px 1px 2px 0 #d0d0d0;
+  -moz-box-shadow:1px 1px 2px 0 #d0d0d0;
+  box-shadow:1px 1px 2px 0 #d0d0d0;
+  background:#fff;
+  border:1px solid #ccc;
+  border-color:#e4e4e4 #bebebd #bebebd #e4e4e4;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  padding: 20px;
 }
 
 .help-block {
@@ -79,8 +82,27 @@ body {
   margin: 10px;
 }
 
+.clr {
+  clear: both;
+}
+
+label.control-label.file.optional, label.control-label.file.required {
+  display: none;
+}
+
 .lesson {
-  background-color: black;
+  background-color: #383435;
+  margin-top: 10px;
+  min-height: 130px;
+}
+
+.lesson a {
+  color: white;
+  font-size: 15px;
+}
+
+.lesson a strong {
+  font-size: 25px;
 }
 
 .section {
@@ -89,14 +111,74 @@ body {
   padding: 20px;
 }
 
-.lesson a {
-  color: white;
-  font-family: "Helvetica Neue", Helvetica;
-  font-weight: 100;
-  font-size: 15px
+ul {
+  list-style-type: none;
 }
 
-.lesson a b {
+.section-li {
+  border: 1px solid;
+  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+  padding: 20px;
+  margin: 20px;
+}
+
+ul .header {
+  font-size: 25px;
+}
+
+ul .header .fa {
+  font-size: 20px;
+}
+
+.lessons li {
+  background: #383435;
+  color: white;
+  margin: 10px;
+  padding: 8px;
+  font-size: 15px;
+}
+
+.lessons li strong {
+  font-size: 25px;
   font-weight: 100;
-  font-size: 25px
+}
+
+.lessons li p {
+  margin: 0;
+}
+
+.icon {
+  margin-bottom: 10px;
+}
+
+.profile-btn {
+  margin-top: 10px;
+}
+
+.img-fluid {
+  display: block;
+  margin: auto;
+}
+
+.text-eq-justify {
+  text-align: justify;
+}
+
+.center-button {
+  text-align: center;
+}
+
+.send-right {
+  text-align: right;
+}
+
+
+@media (max-width: 576px) {
+  .logofont {
+    font-size: 2.5rem;
+  }
+
+  .footer-title {
+    margin-top: 20px;
+  }
 }
